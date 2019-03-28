@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const indexRoutes = require('./src/routes');
+const indexRoutes = require('./routes');
 
 // Conexão com banco de dados
 mongoose
@@ -30,7 +30,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
 // Rotas
-app.use('/pagination', indexRoutes);
+app.use(indexRoutes);
+
 // Arquivos estáticos
 
 app.listen(app.get('port'), () => {
